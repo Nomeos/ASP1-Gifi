@@ -41,3 +41,18 @@ end
     type_person_id: TypePerson.find_by(slug: 'TEA').id
   )
 end
+
+# Create promotions
+20.times do |i|
+  Promotion.create!(
+    name: "Promotion CPNV #{10.years.ago+i}",
+    start_date: Faker::Date.in_date_period(year: 2013 + i, month: 8),
+    end_date: Faker::Date.in_date_period(year: 2015 + i, month: 6)
+  )
+end
+
+# Create semesters
+4.times do |i|
+  Semester.create(name: "Semestre #{i+1}"
+  )
+end
