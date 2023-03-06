@@ -1,0 +1,9 @@
+<h1>Liste of semesters</h1>
+
+<ul>
+  <% @semesters.each do |semester|  %>
+    <li>
+      <%= link_to semester.name, semester%>
+    </li>
+  <% end %>
+</ul>
