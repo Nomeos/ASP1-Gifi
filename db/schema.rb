@@ -43,7 +43,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_24_134842) do
     t.index ["lecture_id"], name: "index_lecture_grades_on_lecture_id"
   end
 
-  create_table "lecture_promotions", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
+  create_table "lecture_promotions", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "lecture_id", null: false
     t.bigint "promotion_id", null: false
     t.bigint "semester_id", null: false
