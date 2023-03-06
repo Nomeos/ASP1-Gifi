@@ -56,3 +56,13 @@ end
   Semester.create(name: "Semestre #{i+1}"
   )
 end
+
+# Create LecturePromotions
+Lecture.all.each do |lecture|
+  LecturePromotion.create!(
+    lecture_id: lecture.id,
+    promotion_id: Promotion.all.sample.id,
+    semester_id: Semester.all.sample.id,
+    person_id: Person.all.sample.id
+  )
+end
