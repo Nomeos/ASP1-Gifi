@@ -1,4 +1,8 @@
 class Person < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
   has_many :person_promotions
   has_many :promotions, through: :person_promotions
   has_many :student_grades, class_name: "Grade", foreign_key: "student_id"

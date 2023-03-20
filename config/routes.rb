@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :people
   # get 'semesters/index'
   # get 'semesters/show'
   # get 'semesters/edit'
