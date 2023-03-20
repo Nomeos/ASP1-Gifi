@@ -11,16 +11,16 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2023_02_24_134842) do
-  create_table "categories", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
+  create_table "categories", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "grades", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
+  create_table "grades", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
-    t.decimal "result", precision: 1, scale: 1, null: false
-    t.decimal "weight", precision: 3, scale: 2, null: false
+    t.decimal "result", precision: 10, null: false
+    t.decimal "weight", precision: 10, null: false
     t.date "date", null: false
     t.bigint "semester_id", null: false
     t.bigint "promotion_id", null: false
@@ -34,7 +34,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_24_134842) do
     t.index ["teacher_id"], name: "index_grades_on_teacher_id"
   end
 
-  create_table "lecture_grades", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
+  create_table "lecture_grades", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "lecture_id", null: false
     t.bigint "grade_id", null: false
     t.datetime "created_at", null: false
@@ -56,18 +56,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_24_134842) do
     t.index ["semester_id"], name: "index_lecture_promotions_on_semester_id"
   end
 
-  create_table "lectures", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
+  create_table "lectures", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.text "description", null: false
-    t.date "start_date", null: false
-    t.date "end_date", null: false
     t.bigint "category_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_lectures_on_category_id"
   end
 
-  create_table "people", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
+  create_table "people", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "firstname", null: false
     t.string "lastname", null: false
     t.string "email", null: false
@@ -78,7 +76,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_24_134842) do
     t.index ["type_person_id"], name: "index_people_on_type_person_id"
   end
 
-  create_table "person_promotions", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
+  create_table "person_promotions", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "promotion_id", null: false
     t.bigint "person_id", null: false
     t.datetime "created_at", null: false
@@ -87,21 +85,23 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_24_134842) do
     t.index ["promotion_id"], name: "index_person_promotions_on_promotion_id"
   end
 
-  create_table "promotions", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
+  create_table "promotions", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.date "start_date", null: false
     t.date "end_date", null: false
+    t.bigint "teacher_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["teacher_id"], name: "index_promotions_on_teacher_id"
   end
 
-  create_table "semesters", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
+  create_table "semesters", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "type_people", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
+  create_table "type_people", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "slug", null: false
     t.text "description"
@@ -123,4 +123,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_24_134842) do
   add_foreign_key "people", "type_people"
   add_foreign_key "person_promotions", "people"
   add_foreign_key "person_promotions", "promotions"
+  add_foreign_key "promotions", "people", column: "teacher_id"
 end
