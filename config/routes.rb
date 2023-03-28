@@ -1,5 +1,16 @@
 Rails.application.routes.draw do
-  devise_for :people
+  devise_for :people, controllers: {
+    sessions: 'person/sessions',
+    registrations: 'person/registrations'
+  }
+
+  # change the path to the sign in page
+=begin
+  devise_scope :person do
+    get 'login', to: 'devise/sessions#new'
+    get 'signup', to: 'devise/registrations#new'
+  end
+=end
   # get 'semesters/index'
   # get 'semesters/show'
   # get 'semesters/edit'
