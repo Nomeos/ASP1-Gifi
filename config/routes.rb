@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
-  get 'lectures/myLectures'
   devise_for :person, controllers: {
     sessions: 'person/sessions',
     registrations: 'person/registrations'
   }
 
   get 'lectures/myLectures'
+  get 'grades/myGrades'
 
   # change the path to the sign in page
 =begin
@@ -28,5 +28,4 @@ Rails.application.routes.draw do
   root "home#index"
 
   resources :semesters
-  resources :grades
 end

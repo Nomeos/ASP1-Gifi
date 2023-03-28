@@ -1,0 +1,28 @@
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Names</th>
+    <th scope="col">Results</th>
+    <th scope="col">Weight</th>
+    <th scope="col">Date</th>
+    <th scope="col">Semester</th>
+    <th scope="col">Promotion</th>
+    <th scope="col">Teacher</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @myGrades.each do |grade| %>
+    <tr>
+      <th scope="row"><%= grade.id %></th>
+      <td><%= grade.name %></td>
+      <td><%= grade.result %></td>
+      <td><%= grade.weight %> %</td>
+      <td><%= grade.date %></td>
+      <td><%= Semester.find(grade.semester_id).name %></td>
+      <td><%= Promotion.find(grade.promotion_id).name %></td>
+      <td><%= Person.find(grade.teacher_id).lastname %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
