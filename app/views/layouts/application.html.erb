@@ -24,12 +24,18 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#">Home</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">My grades</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="myLectures">My Lectures</a>
-        </li>
+        <% if person_signed_in? %>
+          <% if current_person.type_person_id === 1 %>
+            <li class="nav-item">
+              <a class="nav-link" href="/grades/myGrades">My grades</a>
+            </li>
+          <% end %>
+          <% if current_person.type_person_id === 2 %>
+            <li class="nav-item">
+              <a class="nav-link" href="/lectures/myLectures">My Lectures</a>
+            </li>
+          <% end %>
+        <% end %>
       </ul>
     </div>
   </div>
