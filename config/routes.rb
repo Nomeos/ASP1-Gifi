@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
+  get 'lectures/myLectures'
   devise_for :person, controllers: {
     sessions: 'person/sessions',
     registrations: 'person/registrations'
   }
+
+  get 'lectures/myLectures'
 
   # change the path to the sign in page
 =begin
