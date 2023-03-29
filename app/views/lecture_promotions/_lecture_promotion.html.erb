@@ -1,0 +1,21 @@
+<div id="<%= dom_id lecture_promotion %>">
+  <p>
+    <strong>Lecture:</strong>
+    <%= Lecture.find(lecture_promotion.lecture_id).name %>
+  </p>
+
+  <p>
+    <strong>Promotion:</strong>
+    <%= Promotion.find(lecture_promotion.promotion_id).name %>
+  </p>
+
+  <p>
+    <strong>Semester:</strong>
+    <%= Semester.find(lecture_promotion.semester_id).name %>
+  </p>
+
+  <p>
+    <strong>Teacher:</strong>
+    <%= Person.find(lecture_promotion.person_id).lastname %> <%= Person.find(lecture_promotion.person_id).firstname %>
+  </p>
+</div>
