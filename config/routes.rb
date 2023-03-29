@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :promotions
   resources :lecture_promotions
   devise_for :person, controllers: {
     sessions: 'person/sessions',
