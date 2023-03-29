@@ -1,3 +1,6 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Lectures</h1>
 <%= link_to "New", new_lecture_path, class: "btn btn-success" %>
 <table class="table">
   <thead>
@@ -10,13 +13,13 @@
   </thead>
   <tbody>
   <% @lectures.each do |lecture| %>
-      <tr>
-        <th scope="row"><%= lecture.id %></th>
-        <td><%= lecture.name %></td>
-        <td><%= lecture.description %></td>
-        <td><%= Category.find(lecture.category_id).name %></td>
-        <td><%= link_to "Show", lecture_path(lecture) , class: "btn btn-warning" %></td>
-      </tr>
+    <tr>
+      <th scope="row"><%= lecture.id %></th>
+      <td><%= lecture.name %></td>
+      <td><%= lecture.description %></td>
+      <td><%= Category.find(lecture.category_id).name %></td>
+      <td><%= link_to "Show", lecture_path(lecture), class: "btn btn-warning" %></td>
+    </tr>
   <% end %>
   </tbody>
 </table>
