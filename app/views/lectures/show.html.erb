@@ -15,7 +15,9 @@
     <strong for="Promotions">Promotions :</strong>
   <p>
     <% @lecture.promotions.each do |promotion| %>
+      <p>
       <%= promotion.name %>
+      </p>
     <% end %>
   </p>
   <%= link_to "Add new promotion", new_lecture_promotion_path, class: "btn btn-success" %>
