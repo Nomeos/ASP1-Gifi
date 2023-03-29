@@ -41,7 +41,7 @@
           Welcome <%= current_person.firstname %> <%= current_person.lastname %>
           as <%= TypePerson.find(current_person.type_person_id).name %>
         </span>
-        <%= form_with url: "person/sign_out", method: :delete do |form| %>
+        <%= form_with url: "/person/sign_out", method: :delete do |form| %>
           <%= form.submit "Logout", class: "btn btn-danger" %>
         <% end %>
       <% end %>
