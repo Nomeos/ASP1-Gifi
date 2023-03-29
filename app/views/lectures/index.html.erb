@@ -1,0 +1,21 @@
+<%= link_to "New", new_lecture_path, class: "btn btn-success" %>
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Name</th>
+    <th scope="col">Description</th>
+    <th scope="col">Category name</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @lectures.each do |lecture| %>
+    <tr>
+      <th scope="row"><%= lecture.id %></th>
+      <td><%= lecture.name %></td>
+      <td><%= lecture.description %></td>
+      <td><%= Category.find(lecture.category_id).name %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

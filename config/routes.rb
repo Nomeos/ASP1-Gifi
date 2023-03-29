@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'lectures/myLectures'
   get 'grades/myGrades'
 
+
   # change the path to the sign in page
 =begin
   devise_scope :person do
@@ -28,4 +29,5 @@ Rails.application.routes.draw do
   root "home#index"
 
   resources :semesters
+  resources :lectures
 end
