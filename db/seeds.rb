@@ -25,6 +25,7 @@ TypePerson.create!(name: 'Teacher', description: 'Teacher of the school', slug: 
     lastname: Faker::Name.last_name,
     email: Faker::Internet.email,
     phone: Faker::PhoneNumber.cell_phone,
+    password: 'password',
     type_person_id: TypePerson.find_by(slug: 'STU').id
   )
 end
@@ -36,6 +37,7 @@ end
     lastname: Faker::Name.last_name,
     email: Faker::Internet.email,
     phone: Faker::PhoneNumber.cell_phone,
+    password: 'password',
     type_person_id: TypePerson.find_by(slug: 'TEA').id
   )
 end
