@@ -15,10 +15,10 @@
     <strong for="Promotions">Promotions :</strong>
   <p>
     <% @lecture.promotions.each do |promotion| %>
-      <p>
+    <p>
       <%= promotion.name %>
-      </p>
-    <% end %>
+    </p>
+  <% end %>
   </p>
   <%= link_to "Add promotion", new_lecture_promotion_path, class: "btn btn-success" %>
   </p>
