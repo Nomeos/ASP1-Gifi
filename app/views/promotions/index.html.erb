@@ -20,7 +20,7 @@
       <td><%= promotion.start_date %></td>
       <td><%= promotion.end_date %></td>
       <td><%= Person.find(promotion.teacher_id).lastname %> <%= Person.find(promotion.teacher_id).firstname %></td>
-      <td><%= link_to "Show", promotions_path(promotion), class: "btn btn-warning" %></td>
+      <td><%= link_to "Show", promotion_path(promotion), class: "btn btn-warning" %></td>
     </tr>
   <% end %>
   </tbody>
