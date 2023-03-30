@@ -13,4 +13,8 @@ class Person < ApplicationRecord
   validates :lastname, presence: true
   validates :email, presence: true
   validates :type_person_id, presence: true
+
+  def fullname
+    "#{lastname} #{firstname}"
+  end
 end
