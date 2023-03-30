@@ -45,9 +45,9 @@ end
 # Create promotions
 20.times do |i|
   Promotion.create!(
-    name: "Promotion CPNV #{10.years.ago + i}",
-    start_date: Faker::Date.in_date_period(year: 2013 + i, month: 8),
-    end_date: Faker::Date.in_date_period(year: 2015 + i, month: 6),
+    name: "Promotion CPNV #{2013+i}",
+    start_date: Faker::Date.in_date_period(month: 8,year: 2013+i),
+    end_date: Faker::Date.in_date_period(month: 6, year: 2015+i),
     teacher_id: Person.where(type_person_id: TypePerson.find_by(slug: 'TEA').id).sample.id
   )
 end

@@ -28,7 +28,7 @@
 
   <div class="form-group">
     <%= form.label :person_id, style: "display: block" %>
-    <%= form.select :person_id, options_for_select(Person.where(type_person_id: TypePerson.find_by(slug: 'TEA')).map { |r| [r.lastname, r.id] }), {}, class: "form-control" %>
+    <%= form.select :person_id, options_for_select(Person.where(type_person_id: TypePerson.find_by(slug: 'TEA')).map { |r| [r.fullname, r.id] }), {}, class: "form-control" %>
   </div>
 
   <div>

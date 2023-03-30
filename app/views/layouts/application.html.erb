@@ -41,7 +41,7 @@
       </ul>
       <% if person_signed_in? %>
         <span class="navbar-text">
-          Welcome <%= current_person.firstname %> <%= current_person.lastname %>
+          Welcome <%= current_person.fullname %>
           as <%= TypePerson.find(current_person.type_person_id).name %>
         </span>
         <%= form_with url: "/person/sign_out", method: :delete do |form| %>
