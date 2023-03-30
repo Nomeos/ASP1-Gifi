@@ -11,27 +11,25 @@
     </div>
   <% end %>
 
-  <div>
+  <div class="form-group">
     <%= form.label :name, style: "display: block" %>
     <%= form.text_field :name %>
   </div>
 
-  <div>
+  <div class="form-group">
     <%= form.label :start_date, style: "display: block" %>
-    <%= form.text_field :start_date %>
+    <%= form.date_field :start_date, start_year: 1800, end_year: Time.now.year, class: "form-select" %>
   </div>
 
-  <div>
+  <div class="form-group">
     <%= form.label :end_date, style: "display: block" %>
-    <%= form.text_field :end_date %>
+    <%= form.date_field :end_date, start_year: 1800, end_year: Time.now.year, class: "form-select" %>
   </div>
 
-  <div>
-    <%= form.label :teacher_id, style: "display: block" %>
-    <%= form.text_field :teacher_id %>
+  <div class="form-group">
+    <%= form.label :person_id, style: "display: block" %>
+    <%= form.select :person_id, options_for_select(Person.where(type_person_id: TypePerson.find_by(slug: 'TEA')).map { |r| [r.lastname, r.id] }), {}, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.submit %>
-  </div>
+  <div><%= form.submit "Submit", class: "btn btn-primary" %></div>
 <% end %>
