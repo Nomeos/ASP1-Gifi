@@ -16,7 +16,14 @@
 
   <p>
     <strong>Teacher:</strong>
-    <%= promotion.teacher_id %>
+    <%= Person.find(promotion.teacher_id).fullname %>
+  <p>
+    <strong>Students:</strong>
+    <% PersonPromotion.where(promotion_id: promotion.id).each do |person_promotion| %>
+    <p>
+      <%= Person.find(person_promotion.person_id).fullname %>
+    </p>
+  <% end %>
+  <%= link_to "Add student", new_lecture_promotion_path, class: "btn btn-success" %>
   </p>
-
 </div>
