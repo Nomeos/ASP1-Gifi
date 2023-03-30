@@ -21,7 +21,7 @@
       <td><%= grade.date %></td>
       <td><%= Semester.find(grade.semester_id).name %></td>
       <td><%= Promotion.find(grade.promotion_id).name %></td>
-      <td><%= Person.find(grade.teacher_id).lastname %></td>
+      <td><%= Person.find(grade.teacher_id).fullname %></td>
     </tr>
   <% end %>
   </tbody>
