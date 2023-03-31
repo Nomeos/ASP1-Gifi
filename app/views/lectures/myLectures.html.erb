@@ -1,0 +1,24 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>My lectures</h1>
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Name</th>
+    <th scope="col">Promotion</th>
+    <th scope="col">Semestre</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @myLectures.each do |lecture| %>
+    <tr>
+      <th scope="row"><%= lecture.id %></th>
+      <td><%= Lecture.find(lecture.lecture_id).name %></td>
+      <td><%= Promotion.find(lecture.promotion_id).name %></td>
+      <td><%= Semester.find(lecture.semester_id).name %></td>
+      <td><%= link_to "Show", lecture_path(lecture), class: "btn btn-warning" %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

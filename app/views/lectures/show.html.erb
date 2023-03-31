@@ -1,0 +1,25 @@
+<div>
+  <p>
+    <strong>Name :</strong>
+    <%= @lecture.name %></span>
+  </p>
+  <p>
+    <strong for="description">Description :</strong>
+    <%= @lecture.description %></span>
+  </p>
+  <p>
+    <strong for="category">Category :</strong>
+    <%= Category.find(@lecture.category_id).name %></span>
+  </p>
+  <p>
+    <strong for="Promotions">Promotions :</strong>
+  <p>
+    <% @lecture.promotions.each do |promotion| %>
+    <p>
+      <%= promotion.name %>
+    </p>
+  <% end %>
+  </p>
+  <%= link_to "Add promotion", new_lecture_promotion_path, class: "btn btn-success" %>
+  </p>
+</div>

@@ -1,13 +1,5 @@
 class GradesController < ApplicationController
-  def index
-  end
-
-  def show
-  end
-
-  def edit
-  end
-
-  def new
+  def myGrades
+    @myGrades = Grade.where(student_id: current_person.id)
   end
 end
